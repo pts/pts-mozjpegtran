@@ -493,6 +493,11 @@ my_emit_message(j_common_ptr cinfo, int msg_level)
  * The main program.
  */
 
+#ifdef NEED_STDIOFIX
+FILE *stderrfix;
+FILE *stdoutfix;
+#endif
+
 int
 main(int argc, char **argv)
 {
@@ -519,6 +524,12 @@ main(int argc, char **argv)
   FILE *icc_file;
   JOCTET *icc_profile = NULL;
   long icc_len = 0;
+
+#ifdef NEED_STDIOFIX
+  stderrfix = fdopen(2, "w");
+  setbuf(stderrfix, NULL);
+  stdoutfix = fdopen(1, "w");
+#endif
 
   /* On Mac, fetch a command line. */
 #ifdef USE_CCOMMAND

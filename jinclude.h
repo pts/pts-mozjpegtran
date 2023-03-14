@@ -38,6 +38,19 @@
 #include <stdio.h>
 #include <string.h>
 
+#if NEED_STDIOFIX  /* OpenWatcom v2 in 2022 ... 2023-03-04 ... have buggy stderr. */
+#  undef stderr
+#  define stderr stderrfix
+   extern FILE *stderrfix;
+#  undef stdout
+#  define stdout stdoutfix
+   extern FILE *stdoutfix;
+#endif
+
+#ifdef NEED_EXIT_FAILURE_FIX
+#undef EXIT_FAILURE  /* 255 by default. We want 1. */
+#endif
+
 /*
  * These macros/inline functions facilitate using Microsoft's "safe string"
  * functions with Visual Studio builds without the need to scatter #ifdefs

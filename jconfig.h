@@ -40,3 +40,14 @@
 #define USE_SETMODE 1
 #endif
 
+#if defined(__WATCOMC__) && defined(__LINUX__)
+#  define NEED_STDIOFIX 1
+#else
+#  undef  NEED_STDIOFIX
+#endif
+
+#if defined(__WATCOMC__)
+#  define NEED_EXIT_FAILURE_FIX 1  /* EXIT_FAILURE is 255 by default in OpenWatcom. We want 1. */
+#else
+#  undef  NEED_EXIT_FAILURE_FIX
+#endif
