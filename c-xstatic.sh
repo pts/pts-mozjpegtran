@@ -3,7 +3,8 @@
 set -ex
 cd "${0%/*}"
 
-xstatic gcc -o mozjpegtran.xstatic -m32 -march=i686 -s -O2 -W -Wall -Wno-unused-parameter -Wl,--gc-sections -ffunction-sections -fdata-sections jpegtran.c rdswitch.c jcparam.c transupp.c jcext.c jerror.c cdjpeg.c jdapimin.c jcapimin.c jdatasrc.c jdtrans.c jctrans.c jdatadst.c jcicc.c jcomapi.c jutils.c jdmarker.c jmemmgr.c jdinput.c jcmarker.c jdhuff.c jdcoefct.c jdphuff.c jdarith.c jcmaster.c jchuff.c jcphuff.c jcarith.c jmemnobs.c jaricom.c jsimd_none.c -lm
+SRCS_4_1_1='jpegtran.c rdswitch.c cdjpeg.c jcparam.c transupp.c jcext.c jerror.c jdapimin.c jcapimin.c jdatasrc.c jdtrans.c jctrans.c jdatadst.c jcomapi.c jutils.c jdmarker.c jmemmgr.c jdinput.c jdphuff.c jdcoefct.c jdarith.c jdhuff.c jcmaster.c jchuff.c jcmarker.c jcphuff.c jmemnobs.c jcarith.c jaricom.c jcicc.c jsimd_none.c'
+xstatic gcc -o mozjpegtran.xstatic -m32 -march=i686 -s -O2 -W -Wall -Wno-unused-parameter -Wl,--gc-sections -ffunction-sections -fdata-sections $SRCS_4_1_1 -lm
 ls -ld mozjpegtran.xstatic
 
 : "$0" OK.
