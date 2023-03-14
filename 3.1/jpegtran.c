@@ -388,6 +388,11 @@ parse_switches (j_compress_ptr cinfo, int argc, char **argv,
  * The main program.
  */
 
+#ifdef NEED_STDIOFIX
+FILE *stderrfix;
+FILE *stdoutfix;
+#endif
+
 int
 main (int argc, char **argv)
 {
@@ -408,6 +413,12 @@ main (int argc, char **argv)
   unsigned long insize = 0;
   unsigned char *outbuffer = NULL;
   unsigned long outsize = 0;
+
+#ifdef NEED_STDIOFIX
+  stderrfix = fdopen(2, "w");
+  setbuf(stderrfix, NULL);
+  stdoutfix = fdopen(1, "w");
+#endif
 
   /* On Mac, fetch a command line. */
 #ifdef USE_CCOMMAND
