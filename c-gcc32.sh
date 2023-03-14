@@ -1,6 +1,7 @@
 #! /bin/sh --
 # by pts@fazekas.hu at Thu Mar  9 01:11:17 CET 2023
 set -ex
+cd "${0%/*}"
 
 NOPIE=""  # GCC 4.8.4 doesn't have `-no-pie'.
 gcc -no-pie -E - </dev/null >/dev/null 2>&1 && NOPIE="-no-pie"

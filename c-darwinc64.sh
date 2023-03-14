@@ -1,6 +1,7 @@
 #! /bin/sh --
 # by pts@fazekas.hu at Thu Mar  9 01:11:17 CET 2023
 set -ex
+cd "${0%/*}"
 
 if type x86_64-apple-darwin14-gcc >/dev/null 2>&1; then
   PREFIX=  # https://github.com/pts/pts-osxcross
