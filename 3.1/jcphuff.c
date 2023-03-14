@@ -500,7 +500,7 @@ encode_mcu_AC_first (j_compress_ptr cinfo, JBLOCKROW *MCU_data)
 
   for (k = cinfo->Ss; k <= Se; k++) {
     temp = (*block)[jpeg_natural_order[k]];
-    if ((unsigned)(temp + deadzone) <= 2*deadzone) {
+    if ((unsigned)(temp + deadzone) <= 2U*deadzone) {
       r++;
       continue;
     }
