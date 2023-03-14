@@ -5,7 +5,11 @@
 #undef inline
 
 /* How to obtain function inlining. */
+#ifdef __WATCOMC__
+#define INLINE inline
+#else
 #define INLINE  __inline__
+#endif
 
 /* How to obtain thread-local storage */
 #define THREAD_LOCAL
@@ -17,8 +21,13 @@
 #define VERSION  "4.1.1"
 
 /* The size of `size_t', as computed by sizeof. */
-#define SIZEOF_SIZE_T __SIZEOF_POINTER__
-
+#ifdef __SIZEOF_POINTER__
+#  define SIZEOF_SIZE_T __SIZEOF_POINTER__
+#else
+#  if defined(__WATCOMC__) && defined(_M_I386)
+#    define SIZEOF_SIZE_T 4
+#  endif
+#endif
 
 /* Define if your compiler has __builtin_ctzl() and sizeof(unsigned long) == sizeof(size_t). */
 #if __SIZEOF_LONG__ && __SIZEOF_LONG__ == SIZEOF_SIZE_T
