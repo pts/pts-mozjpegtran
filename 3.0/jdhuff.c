@@ -490,7 +490,8 @@ jpeg_huff_decode (bitread_working_state * state,
 #define AVOID_TABLES
 #ifdef AVOID_TABLES
 
-#define HUFF_EXTEND(x,s)  ((x) + ((((x) - (1<<((s)-1))) >> 31) & (((-1)<<(s)) + 1)))
+#define NEG_1  ((unsigned)-1)
+#define HUFF_EXTEND(x,s)  ((x) + ((((x) - (1<<((s)-1))) >> 31) & (((NEG_1)<<(s)) + 1)))
 
 #else
 
