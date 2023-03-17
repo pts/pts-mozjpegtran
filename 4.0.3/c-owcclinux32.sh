@@ -3,9 +3,9 @@
 set -ex
 cd "${0%/*}"
 
-SRCS_4_1_1='jpegtran.c rdswitch.c cdjpeg.c jcparam.c transupp.c jcext.c jerror.c jdapimin.c jcapimin.c jdatasrc.c jdtrans.c jctrans.c jdatadst.c jcomapi.c jutils.c jdmarker.c jmemmgr.c jdinput.c jdphuff.c jdcoefct.c jdarith.c jdhuff.c jcmaster.c jchuff.c jcmarker.c jcphuff.c jmemnobs.c jcarith.c jaricom.c jcicc.c jsimd_none.c'
+SRCS_4_0_3='jpegtran.c rdswitch.c cdjpeg.c jcparam.c transupp.c jcext.c jerror.c jdapimin.c jcapimin.c jdatasrc.c jdtrans.c jctrans.c jdatadst.c jcomapi.c jutils.c jdmarker.c jmemmgr.c jdinput.c jdphuff.c jdcoefct.c jdarith.c jdhuff.c jcmaster.c jchuff.c jcmarker.c jcphuff.c jmemnobs.c jcarith.c jaricom.c jcicc.c jsimd_none.c'
 # -Wl,option -Wl,symfile=t.sym 
-owcc -o mozjpegtran.ow -blinux -s -fo=.oo -Os -fno-stack-check -fsigned-char -march=i386 -Wl,option -Wl,eliminate -W -Wall -Wextra -Wno-n202 -Wno-n303 -Wno-n136 -Wno-n201 $SRCS_4_1_1
+owcc -o mozjpegtran.ow -blinux -s -fo=.oo -Os -fno-stack-check -fsigned-char -march=i386 -Wl,option -Wl,eliminate -W -Wall -Wextra -Wno-n202 -Wno-n303 -Wno-n136 -Wno-n201 $SRCS_4_0_3
 rm -f ./*.oo
 sstrip mozjpegtran.ow  # Remove symbols.
 ls -ld mozjpegtran.ow
