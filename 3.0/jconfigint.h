@@ -15,7 +15,7 @@
 #define PACKAGE_NAME "mozjpeg"
 
 /* Version number of package */
-#define VERSION "3.1"
+#define VERSION "3.0"
 
 /* The size of `size_t', as computed by sizeof. */
 #ifdef __SIZEOF_POINTER__
