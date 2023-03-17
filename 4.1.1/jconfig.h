@@ -68,3 +68,5 @@
 #else
 #  undef  NEED_EXIT_FAILURE_FIX
 #endif
+
+#define NO_PUTENV 1
