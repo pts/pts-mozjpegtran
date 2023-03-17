@@ -72,7 +72,7 @@ jpeg_mem_available (j_common_ptr cinfo, size_t min_bytes_needed,
                     size_t max_bytes_needed, size_t already_allocated)
 {
   if (cinfo->mem->max_memory_to_use) {
-    if (cinfo->mem->max_memory_to_use > already_allocated)
+    if (cinfo->mem->max_memory_to_use + (size_t)0 > already_allocated + (long)0)
       return cinfo->mem->max_memory_to_use - already_allocated;
     else
       return 0;
