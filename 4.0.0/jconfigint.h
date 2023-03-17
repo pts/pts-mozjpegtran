@@ -21,8 +21,12 @@
 #ifdef __SIZEOF_POINTER__
 #  define SIZEOF_SIZE_T __SIZEOF_POINTER__
 #else
-#  if defined(__WATCOMC__) && defined(_M_I386)
+#  if (defined(__WATCOMC__) && defined(_M_I386)) || defined(__i386__)
 #    define SIZEOF_SIZE_T 4
+#  else
+#    if defined(__amd64__) || defined(__x86_64__)
+#      define SIZEOF_SIZE_T 8
+#    endif
 #  endif
 #endif
 
