@@ -5,7 +5,8 @@ mozjpeg to different many different platforms. It also includes
 cross-compilation scripts (shell scripts which run the C compiler with the
 correct arguments) to be run on Linux i386 and amd64. The goal of
 pts-mozjpegtran is to build many versions of jpegtran of mozjpeg from its C
-source on Linux, targeting many platforms.
+source on Linux, targeting many platforms, without depending on Make,
+Autoconf (configure scripts) or CMake.
 
 To compile on Linux, install the compiler (e.g. GCC), and then run one of
 the shell scripts, for example (without the leading `$`):
