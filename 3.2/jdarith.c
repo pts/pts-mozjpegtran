@@ -20,6 +20,8 @@
 #include "jinclude.h"
 #include "jpeglib.h"
 
+#define NEG_1 ((unsigned)-1)
+
 
 /* Expanded entropy decoder object for arithmetic decoding. */
 
@@ -450,7 +452,7 @@ decode_mcu_AC_refine (j_decompress_ptr cinfo, JBLOCKROW *MCU_data)
   tbl = cinfo->cur_comp_info[0]->ac_tbl_no;
 
   p1 = 1 << cinfo->Al;          /* 1 in the bit position being coded */
-  m1 = (-1) << cinfo->Al;       /* -1 in the bit position being coded */
+  m1 = (NEG_1) << cinfo->Al;       /* -1 in the bit position being coded */
 
   /* Establish EOBx (previous stage end-of-block) index */
   for (kex = cinfo->Se; kex > 0; kex--)
