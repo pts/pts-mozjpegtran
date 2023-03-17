@@ -1,8 +1,5 @@
 /* libjpeg-turbo build number */
-#define BUILD  "pts"
-
-/* Compiler's inline keyword */
-#undef inline
+#define BUILD "pts"
 
 /* How to obtain function inlining. */
 #ifdef __WATCOMC__
@@ -15,10 +12,10 @@
 #define THREAD_LOCAL
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME  "mozjpeg"
+#define PACKAGE_NAME "mozjpeg"
 
 /* Version number of package */
-#define VERSION  "4.1.1"
+#define VERSION "4.1.1"
 
 /* The size of `size_t', as computed by sizeof. */
 #ifdef __SIZEOF_POINTER__

@@ -4,7 +4,10 @@
 #define JPEG_LIB_VERSION 62
 
 /* libjpeg-turbo version */
-#define LIBJPEG_TURBO_VERSION 0
+/*#define LIBJPEG_TURBO_VERSION  3.x.y*/
+
+/* libjpeg-turbo version in integer form */
+/*#define LIBJPEG_TURBO_VERSION_NUMBER  3xy*/
 
 /* Support arithmetic encoding */
 #define C_ARITH_CODING_SUPPORTED 1
@@ -13,10 +16,10 @@
 #define D_ARITH_CODING_SUPPORTED 1
 
 /* Support in-memory source/destination managers */
-#define MEM_SRCDST_SUPPORTED 1
+#define MEM_SRCDST_SUPPORTED 1  /* Without this: jcmaster.c:523:7: warning: implicit declaration of function 'jpeg_mem_dest_internal' */
 
 /* Use accelerated SIMD routines. */
-#define WITH_SIMD 1
+#undef WITH_SIMD
 
 /*
  * Define BITS_IN_JSAMPLE as either
